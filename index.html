@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>My App</title>
+
+  <link rel="stylesheet" href="css/framework7.ios.min.css">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div class="statusbar-overlay"></div>
+  
+  <div class="panel-overlay"></div>
+
+  <div class="panel panel-right panel-reveal">
+    <div class="content-block">
+        <div class="login-container open" id="logCont">
+            <img class="login-user-img" src="img/userLogin.png">
+
+            <div class="login-content-wrap">
+                <span class="username-wrap input-wrap">
+                    <p class="login-text username">Username / Email</p>
+
+                    <input type="text" id="userNameInput" class="login-input">
+                </span>
+
+                <span class="password-wrap input-wrap">
+                    <p class="login-text password">Password</p>
+
+                    <input type="password" id="passwordInput" class="login-input">
+
+                </span>
+
+                <span class="login-btn-wrap">
+                    <a class="login-btn" id="login-btn">LOG IN</a>
+                    <a class="no-account-text" id="noAccount">Don't have an account?</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="user-profile-container" id="profileCont">
+            <span class="user-name-wrap">
+                <span class="profile-img" id="profileImg"></span>
+                <input type="checkbox" id="logoutInput">
+                <label class="profile-text" for="logoutInput"></label>
+                <span class="logout-wrap">
+                    <a class="logout" id="logout">LOG OUT</a>
+                </span>
+            </span>
+            <span class="options-wrap">
+                <ul class="option-list">
+                    <li class="option-item" id="tagBtn">
+                        <img class="option-img" src="img/tags.png">
+                        <a class="option-text">Tags</a>
+                    </li>
+                    <li class="option-item" id="favBtn">
+                        <img class="option-img" src="img/favourites.png">
+                        <a class="option-text">Favourites</a>
+                    </li>
+                    <li class="option-item" id="favBtn">
+                        <img class="option-img" src="img/bugIcon.png">
+                        <a class="option-text" href="mailto:adrian@hsm.co.za">Report Bug</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+    </div>
+  </div>
+
+  <div class="panel panel-left panel-reveal" id="leftPanel">
+    <div class="content-block">
+      <span class="options-wrap">
+        <ul class="option-list">
+              <li class="option-item search-item">
+                <p class="search-text">Search</p>
+                <input type="text" class="search-input" id="searchInput">
+                <img class="search-btn" id="searchBtn" src="img/searchBtn.png" >
+              </li>
+
+              <li class="option-item cat-item"> 
+                  <a class="option-text categories">Categories</a>
+                  <ul id="cat-list">
+
+                  </ul>
+              </li>
+          </ul>
+      </span>
+    </div>
+  </div>
+  <!-- Views-->
+  <div class="views">
+
+    <div class="view view-main navbar-through">
+      <!-- Top Navbar-->
+      <div class="navbar">
+
+        <div data-page="index" class="navbar-inner">
+          <div class="left">
+            
+            <a href="#" data-panel="left" class="link icon-only open-panel">
+              <i class="icon icon-bars"></i>
+            </a>
+          </div>
+          <!-- <span class="scroll-count">1</span> -->
+          <img class="cape-logo center" src="img/cape-logo-white.png" id="capeLogo">
+
+          <div class="right">
+            
+            <a href="#" data-panel="right" class="link icon-only open-panel">
+              <span class="profile-img" id="profileImg"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navbar inner for ARTICLE page-->
+        <div data-page="article" class="navbar-inner cached">
+          <div class="left sliding">
+            <a href="#" class="back link">
+              <i class="icon icon-back"></i>
+              <span>Back</span>
+            </a>
+          </div>
+          <img class="cape-logo center" src="img/cape-logo-white.png" id="capeLogo">
+          
+          <div class="right">
+            <a href="#" data-panel="right" class="link icon-only open-panel">
+              <i class="icon icon-bars"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navbar inner for MORE ARTICLES page-->
+        <div data-page="more-post" class="navbar-inner cached">
+          <div class="left sliding">
+            <a href="#" class="back link">
+              <i class="icon icon-back"></i>
+              <span>Back</span>
+            </a>
+          </div>
+          <img class="cape-logo center" src="img/cape-logo-white.png" id="capeLogo">
+        </div>
+
+        <!-- Navbar inner for DIRECT ARTICLE page-->
+        <div data-page="hash-page" class="navbar-inner cached">
+            <div class="left sliding">
+              <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+              </a>
+            </div>
+            <img class="cape-logo center" src="img/cape-logo-white.png" id="capeLogo">
+          </div>
+
+        <!-- Navbar inner for TAGS page-->
+        <div data-page="tags" class="navbar-inner cached">
+          <div class="left sliding">
+            <a href="#" class="back link">
+              <i class="icon icon-back"></i>
+              <span>Back</span>
+            </a>
+          </div>
+          <div class="center sliding">Tags</div>
+        </div>
+
+        <!-- Navbar inner for FAVOURITES page-->
+        <div data-page="favourites" class="navbar-inner cached">
+          <div class="left sliding">
+            <a href="#" class="back link">
+              <i class="icon icon-back"></i>
+              <span>Back</span>
+            </a>
+          </div>
+          <div class="center sliding">Favourites</div>
+        </div>
+
+        <!-- Navbar inner for FAVOURITES page-->
+        <div data-page="search" class="navbar-inner cached">
+          <div class="left sliding">
+            <a href="#" class="back link">
+              <i class="icon icon-back"></i>
+              <span>Back</span>
+            </a>
+          </div>
+          <div class="center sliding">Search Results</div>
+        </div>
+
+      </div>
+
+      <div class="pages toolbar-through">
+        <!-- INDEX Page-->
+        <div data-page="index" class="page">
+          
+          <span class="read-more button" id="read-more">READ MORE</span>
+          <div class="page-content index-content">
+            <div class="topic-slider-container loading">
+              <div class="topic-nav">
+                <div class="topic-content" id="topicContent">
+
+                </div>
+              </div>
+            </div>
+            <span class="fix"></span>
+            <div id="cardContent">
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTICLE Page-->
+        <div data-page="article" class="page cached">
+          <div class="page-content">
+            <div class="content-block" id="articleContent">
+              <div class="swiper-container">
+                <!-- Additional required swiper wrapper -->
+                <div class="swiper-wrapper article-swiper">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--MORE POSTS Page-->
+        <div data-page="more-post" class="page cached">
+            <div class="page-content">
+                <div class="content-block" id="moreContent">
+                  <div class="swiper-container">
+                    <!-- Additional required swiper wrapper -->
+                    <div class="swiper-wrapper more-swiper">
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <!--HASH Page-->
+        <div data-page="hash-page" class="page cached">
+            <div class="page-content">
+                <div class="content-block" id="hashContent">
+
+                </div>
+              </div>
+        </div>
+
+        <!--TAGS Page-->
+        <div data-page="tags" class="page cached">
+          <div class="page-content">
+            <div class="content-block-title"></div>
+            <div class="content-block">
+                <div class="tag-container" id="tagCont">
+                    <ul class="tag-list" id="tagList">
+
+                    </ul>
+                    <span class="done-btn" id="tagDone">DONE</span>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!--FAVOURITES Page-->
+        <div data-page="favourites" class="page cached">
+          <div class="page-content fav-content">
+            <div class="content-block-title"></div>
+            <div class="content-block">
+
+            </div>
+          </div>
+        </div>
+
+        <!--SEARCH Page-->
+        <div data-page="search" class="page cached">
+          <div class="page-content search-content">
+            <div class="content-block" id="searchCont">
+              <div class="search-container">
+
+                <div class="more-from-container">
+
+                </div>
+
+              </div>
+
+              <div class="no-results" id="noRes">
+                <p>Oops! There doesn't seem to be anything here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+
+  <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+  
+  <script type="text/javascript" src="js/framework7.min.js"></script>
+  <script type="text/javascript" src="js/swiper.min.js"></script>
+  
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
